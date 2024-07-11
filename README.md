@@ -9,10 +9,17 @@
 
 # Для готовых контейнеров
 
-sudo docker pull ilyalight113/books-microservices:my
+`sudo docker pull ilyalight113/books-microservices:my
 
-sudo docker pull ilyalight113/books-microservices:rec
+`sudo docker pull ilyalight113/books-microservices:rec
 
-sudo docker run ilyalight113/books-microservices:my
+`sudo docker network create microservices
 
-sudo docker run ilyalight113/books-microservices:rec
+Далее в 2х терминалах запустить эти команды:
+````
+sudo docker run -p 127.0.0.1:5000:5000/tcp --network microservices \
+             -e RECOMMENDATIONS_HOST=recommendations ilyalight113/books-microservices:my
+
+sudo docker run -p 127.0.0.1:50051:50051/tcp --network microservices \
+             --name recommendations ilyalight113/books-microservices:rec
+````
