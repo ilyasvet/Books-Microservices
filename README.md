@@ -10,7 +10,9 @@
 # Для готовых контейнеров
 
 sudo docker pull ilyalight113/books-microservices:my
+
 sudo docker pull ilyalight113/books-microservices:rec
 
 sudo docker run ilyalight113/books-microservices:my
+
 sudo docker run ilyalight113/books-microservices:rec
